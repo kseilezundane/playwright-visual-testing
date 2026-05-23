@@ -1,0 +1,14 @@
+diff --git a/lib/coreBundle.js b/lib/coreBundle.js
+index bc601fcf741792e3fc76884a28a3c43f80c6472f..b8f6bf532613c5a94cfb5ef2a24e5cb270ea0873 100644
+--- a/lib/coreBundle.js
++++ b/lib/coreBundle.js
+@@ -7069,7 +7069,8 @@ function compare(actual, expected, diff2, width, height, options2 = {}) {
+       const [ssimX1, ssimY1] = r1.boundXY(x - SSIM_WINDOW_RADIUS, y - SSIM_WINDOW_RADIUS);
+       const [ssimX2, ssimY2] = r1.boundXY(x + SSIM_WINDOW_RADIUS, y + SSIM_WINDOW_RADIUS);
+       const ssimRGB = (ssim(fastR, ssimX1, ssimY1, ssimX2, ssimY2) + ssim(fastG, ssimX1, ssimY1, ssimX2, ssimY2) + ssim(fastB, ssimX1, ssimY1, ssimX2, ssimY2)) / 3;
+-      const isAntialiased = ssimRGB >= 0.99;
++      const ssimThreshold = parseFloat(process.env.SSIM_THRESHOLD).toFixed(2) || 0.99;
++      const isAntialiased = ssimRGB >= ssimThreshold;
+       if (isAntialiased) {
+         drawYellowPixel(x, y);
+       } else {

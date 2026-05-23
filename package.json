@@ -1,0 +1,23 @@
+{
+  "name": "playwright-visual-testing",
+  "version": "0.0.1",
+  "description": "Template project for Playwright visual testing process modifications",
+  "main": "index.js",
+  "repository": "git@github.com:kseilezundane/playwright-visual-testing.git",
+  "license": "unlicensed",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "1.60.0",
+    "@types/node": "^25.9.1",
+    "playwright": "1.60.0"
+  },
+  "scripts": {
+    "gaussian": "npx playwright test gaussianBlur.spec.js",
+    "opticalFlow": "MOTION_THRESHOLD=3 npx playwright test opticalFlow.spec.js",
+    "ssim": "SSIM_THRESHOLD=0.95 npx playwright test ssimThreshold.spec.js"
+  },
+  "packageManager": "yarn@4.12.0",
+  "resolutions": {
+    "playwright-core@npm:1.60.0": "patch:playwright-core@npm%3A1.60.0#~/.yarn/patches/playwright-core-npm-1.60.0-3d53a7d2d6.patch"
+  }
+}
