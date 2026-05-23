@@ -1,4 +1,5 @@
 import cv2 as cv
+# import numpy as np
 from datetime import datetime, timedelta
 import json
 import sys
@@ -26,6 +27,12 @@ def main():
             "angle": float(angle.max()),
             "duration": str(delta),
         }
+        # generates a diff image
+#         hsv_mask = np.zeros_like(expected_img)
+#         hsv_mask[..., 0] = angle * 180 / np.pi / 2
+#         hsv_mask[..., 2] = cv.normalize(magnitude, None, 0, 255, cv.NORM_MINMAX)
+#         rgb_representation = cv.cvtColor(hsv_mask, cv.COLOR_HSV2BGR)
+#         cv.imwrite('of-diff.png', rgb_representation)
         dump = json.dumps(output)
         print(dump)
     except Exception as error:
