@@ -2,6 +2,18 @@
 
 Template project for Playwright visual testing process modifications
 
+## Test cases
+
+Test case images and their diffs generated via Pixelmatch can be found in [test-cases](test-cases) folder.
+
+## Test results
+
+Diffs obtained during testing can be found in the following folders:
+
+- [ssim-threshold-diffs](ssim-threshold-diffs)
+- [gaussian-diffs](gaussian-diffs)
+- [optical-flow-diffs](optical-flow-diffs)
+
 ## Prerequisites
 
 - Executor should have Node.js, Python 3.x and opencv installed.
